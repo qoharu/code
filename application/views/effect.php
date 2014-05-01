@@ -7,7 +7,10 @@
 <body>
 aslkdjaslkdjaslkjd
 <?php
-    echo anchor($link1,'link1'); echo br();
+    foreach ($link as $kunci => $anchor){
+        echo anchor($anchor,'$kunci'); echo br();
+    }
+/*    echo anchor($link1,'link1'); echo br();
     echo anchor($link2,'link2'); echo br();
     echo anchor($link3,'link3'); echo br();
     echo anchor($link4,'link4'); echo br();
@@ -17,7 +20,7 @@ aslkdjaslkdjaslkjd
     echo anchor($link8,'link8'); echo br();
     echo anchor($link9,'link9'); echo br();
     echo anchor($link10,'link10'); echo br();
-    echo anchor($link11,'link11'); echo br();
+    echo anchor($link11,'link11'); echo br();*/
 ?>
 </body>
 </html>

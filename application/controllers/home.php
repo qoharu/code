@@ -46,7 +46,7 @@ class Home extends CI_Controller {
 
 		// mengambil ekstensi file
 		$file_ext = explode('.', $_FILES['userfile']['name']);  // memisahkan nama dan ekstensi file
-		$file_ext = end($file_ext);                             // mengambil ekstensi file
+		$file_ext = strtolower(end($file_ext));                             // mengambil ekstensi file
 
 		// membuat filename baru, disini dibuat filename dengan format [squhart--2014_04_21--18_29_26]
 		$username = $this->session->userdata('username');   // memasukan data username dari session kedalam variable $username
@@ -69,41 +69,36 @@ class Home extends CI_Controller {
 		}
 	}
 
+
     function effect($img_name){
+        $this->load->library('image_lib');
 
         $file_ext = explode('.', $img_name);  // memisahkan nama dan ekstensi file
-        $file_ext = end($file_ext);
+        $file_ext = strtolower(end($file_ext));
         $path = base_url().'uploads/'.$img_name;
+        echo $path;
 
-
-        $this->load->library('image_lib');
-        foreach ($this->kategori as $kategori) {
+        foreach($this->kategori as $cat) {
+            $nama = $cat;
+            $namanya = "$nama-$img_name";
             $config = [
-                'source_image' => $path,
-                'new_image' => "./uploads/thumbs/$kategori". '-' . $img_name,
+                'source_image' => "./uploads/$img_name",
+                'new_image' => "./uploads/thumbs/$namanya",
                 'maintain_ration' => true,
-                'width' => '150px',
-                'height' => '150px'
+                'width' => '150',
+                'height' => '150'
             ];
 
             $this->image_lib->initialize($config);
             $this->image_lib->resize();
             $this->image_lib->clear();
+            $this->addEffectThumbs($namanya,$nama,$file_ext);
         }
-        $data = [
-            'link1' => site_url("home/addEffect/$img_name/colorise/$file_ext"),
-            'link2' => site_url("home/addEffect/$img_name/sepia/$file_ext"),
-            'link3' => site_url("home/addEffect/$img_name/sharpen/$file_ext"),
-            'link4' => site_url("home/addEffect/$img_name/emboss/$file_ext"),
-            'link5' => site_url("home/addEffect/$img_name/cool/$file_ext"),
-            'link6' => site_url("home/addEffect/$img_name/old/$file_ext"),
-            'link7' => site_url("home/addEffect/$img_name/light/$file_ext"),
-            'link8' => site_url("home/addEffect/$img_name/aqua/$file_ext"),
-            'link9' => site_url("home/addEffect/$img_name/fuzzy/$file_ext"),
-            'link10' => site_url("home/addEffect/$img_name/boost/$file_ext"),
-            'link11' => site_url("home/addEffect/$img_name/gray/$file_ext")
-        ];
-        $this->load->view('effect',$data);
+
+        foreach($this->kategori as $nama){
+            $data['link']['$nama'] = site_url("home/addEffect/$img_name/colorise/$file_ext");
+        }
+
     }
 
     function addEffect($img_name,$effect = colorise,$file_ext){
@@ -121,6 +116,38 @@ class Home extends CI_Controller {
 
 
     }
+    function addEffectThumbs($img_name,$effect = colorise,$file_ext){
+        $this->load->library('effects');
+        $path = base_url().'uploads/thumbs/'.$img_name;
+
+        switch($file_ext){
+            case 'gif' : $gambar = imagecreatefromgif($path); break;
+            case 'jpeg' : $gambar = imagecreatefromjpeg($path); break;
+            case 'jpg' : $gambar = imagecreatefromjpeg($path); break;
+            case 'png' : $gambar = imagecreatefrompng($path); break;
+        }
+
+        $this->effects->add_effect($gambar,$effect);
+        imagejpeg($gambar,"./uploads/thumbs/$img_name");
+
+
+    }
+
+    function iseng(){
+            $config = [
+                'source_image' => './uploads/map_jember.png',
+                'new_image' => './uploads/thumbs/thumbssss.png',
+                'maintain_ration' => true,
+                'width' => '150',
+                'height' => '150'
+            ];
+
+            $this->load->library('image_lib',$config);
+            $this->image_lib->resize();
+            $this->image_lib->clear();
+            $this->addEffectThumbs('thumbssss.png','colorise','png');
+    }
+
 
 
 }
