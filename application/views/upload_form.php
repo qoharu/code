@@ -5,7 +5,7 @@
 <body>
 
 
-<?php echo form_open_multipart('home/do_upload');?>
+<?php echo form_open_multipart('photo/do_upload');?>
 
 <input type="file" name="userfile" size="20" />
 

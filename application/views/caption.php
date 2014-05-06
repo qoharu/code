@@ -8,7 +8,7 @@
     <img src="<?php echo $gambar ?>" ></img>
     <br>
 
-    <form action="<?php echo site_url('home/caption'); ?>">
+    <form action="<?php echo site_url('photo/caption'); ?>">
         <textarea name="caption"></textarea>
         <input type="submit">
     </form>

@@ -2,8 +2,13 @@
 
 class User extends CI_Controller{
 
-    public $username = $this->session->userdata('username');
+    public $username;
     // halaman utama pada controller user
+    function __construct(){
+    	parent::__construct();
+    	$this->username = $this->session->userdata('username');
+    }
+
 	function index(){
 		$sesi = $this->session->userdata('loggedIn');
 		if(  $sesi){
@@ -70,7 +75,7 @@ class User extends CI_Controller{
 		redirect('home');
 	}
 
-	function profile($username = ){
+	function profile($username){
 
 		$data = array(	'title' =>'profile' ,
 						'username' => $this->session->userdata('username'),
