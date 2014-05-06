@@ -11,6 +11,7 @@ class Semua extends CI_Model {
         if ( is_array($login) && count($login) == 1 ) {
             $this->details = $login[0];
             $this->set_session();
+
             return TRUE;
         }
 		return FALSE;
@@ -33,7 +34,7 @@ class Semua extends CI_Model {
         );
         $this->session->set_userdata($sesi);
     }
-    function upload(){
+    function upload($path,$uid){
 
     }
 }
