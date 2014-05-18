@@ -51,7 +51,7 @@ class User extends CI_Controller{
 
 	function login(){
         $sesi = $this->session->userdata('loggedIn');
-        if(  $sesi){
+        if( $sesi){
             redirect('home');       // jika sudah login, redirect ke ke halaman home
         }
 
@@ -75,16 +75,25 @@ class User extends CI_Controller{
 		redirect('home');
 	}
 
-	function profile($username){
+	function profile($user = ""){
+		if(empty($user)){
+			$user = $this->username;
+		}
+		$user = $this->semua->getUserbyUser($user);
 
-		$data = array(	'title' =>'profile' ,
-						'username' => $this->session->userdata('username'),
-						'email' => $this->session->userdata('email'),
-						'fullname' => $this->session->userdata('fullname')
-					);
+        foreach ($user as $nilai) {
+        	$data = [	'uid' => $nilai->id,
+        				'username' => $nilai->username,
+						'email' => $nilai->email,
+						'fullname' => $nilai->fullname
+					];
+        }
+
+		$uid = $data['uid'];
+		$gambar = $this->semua->getImageByUser($uid);
+		$data['gambar'] = $gambar;
 
 		$this->load->view('profile',$data);
-	}
 
-	
+	}	
 }

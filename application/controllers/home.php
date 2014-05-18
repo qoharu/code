@@ -26,10 +26,9 @@ class Home extends CI_Controller {
 
 		$data['title']='Pengugram'; // penambahan variable data['title'] untuk dikirim ke view menjadi title
 
-		echo	$this->session->userdata('username');
-		echo	$this->session->userdata('email');
-		echo	$this->session->userdata('nama');
-
+        $gambar = $this->semua->getImageAll();
+        $data['gambar'] = $gambar;
+   
         $this->load->view('home',$data); // menampilkan view halaman home pada view dan mengirimkan variable $data
 
 	}

@@ -3,23 +3,29 @@
 class Effects{
     private $image;
 
-public function add_effect($image, $filter = NULL){
-$this->image = $image;
+    /**
+     * @param $image
+     * variable untuk menyimpan gambar
+     * @param string $filter
+     * untuk pemilihan filter
+     */
+    public function add_effect($image, $filter = NULL){
+    $this->image = $image;
 
-switch( $filter ){
-case 'colorise' : $this->makeColorise(); break;
-case 'sepia'    : $this->makeSepia(); break;
-case 'sharpen'  : $this->makeSharpen(); break;
-case 'emboss'   : $this->makeEmboss(); break;
-case 'cool'     : $this->makeCool(); break;
-case 'old'      : $this->makeOld(); break;
-case 'light'    : $this->makeLight(); break;
-case 'aqua'    	: $this->makeAqua(); break;
-case 'fuzzy'    : $this->makeFuzzy(); break;
-case 'boost'    : $this->makeBoost(); break;
-case 'gray'     : $this->makeGray(); break;
-
-}
+    switch( $filter ){
+        case 'colorise' : $this->makeColorise(); break;
+        case 'sepia'    : $this->makeSepia(); break;
+        case 'sharpen'  : $this->makeSharpen(); break;
+        case 'emboss'   : $this->makeEmboss(); break;
+        case 'cool'     : $this->makeCool(); break;
+        case 'old'      : $this->makeOld(); break;
+        case 'light'    : $this->makeLight(); break;
+        case 'aqua'    	: $this->makeAqua(); break;
+        case 'fuzzy'    : $this->makeFuzzy(); break;
+        case 'boost'    : $this->makeBoost(); break;
+        case 'gray'     : $this->makeGray(); break;
+        default         : $this->makeColorise(); break;
+    }
 }
 
 protected function makeColorise()
@@ -48,21 +54,21 @@ protected function makeSepia()
 
 protected function makeSharpen()
 {
-    $gaussian = array(
-        array(1.0, 1.0, 1.0),
-        array(1.0, -7.0, 1.0),
-        array(1.0, 1.0, 1.0)
-    );
+    $gaussian = [
+        [1.0, 1.0, 1.0],
+        [1.0, -7.0, 1.0],
+        [1.0, 1.0, 1.0]
+    ];
     imageconvolution($this->image, $gaussian, 1, 4);
 }
 
 protected function makeEmboss()
 {
-    $gaussian = array(
-        array(-2.0, -1.0, 0.0),
-        array(-1.0, 1.0, 1.0),
-        array(0.0, 1.0, 2.0)
-    );
+    $gaussian = [
+        [-2.0, -1.0, 0.0],
+        [-1.0, 1.0, 1.0],
+        [0.0, 1.0, 2.0]
+    ];
     imageconvolution($this->image, $gaussian, 1, 5);
 }
 
@@ -101,11 +107,11 @@ protected function makeAqua()
 
 protected function makeFuzzy()
 {
-    $gaussian = array(
-        array(1.0, 1.0, 1.0),
-        array(1.0, 1.0, 1.0),
-        array(1.0, 1.0, 1.0)
-    );
+    $gaussian = [
+        [1.0, 1.0, 1.0],
+        [1.0, 1.0, 1.0],
+        [1.0, 1.0, 1.0]
+    ];
 
     imageconvolution($this->image, $gaussian, 9, 20);
 }

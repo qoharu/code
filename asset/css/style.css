@@ -1,0 +1,354 @@
+/* Basic reset */
+
+* {
+	margin: 0;
+	font-family: segoe UI;
+}
+
+input:focus,
+button:focus {
+	outline: none;
+}
+a{
+	text-decoration: none;
+}
+.picnc {
+	text-align: center;
+	margin: 150px auto 50px;
+}
+
+.picnc > a {
+	font-family: segoe UI;
+	font-size: 45px;
+	color: #3498db;
+	text-decoration: none;
+	letter-spacing: 1px;
+	padding: 0 0 12px;
+	border-top: 1px solid #3498db;
+	border-bottom: 1px solid #3498db;
+}
+
+.login {
+	width: 270px;
+	margin: 0 auto;
+}
+
+.username,
+.password {
+	width: 100%;
+	box-sizing: border-box;
+	height: 40px;
+	border: 2px solid #ccc;
+	padding: 0 15px;
+	color:#888;
+}
+
+.username {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;	
+	background: url("../img/username.png") no-repeat;
+	background-size: 18px;
+	background-position: 235px center;
+}
+
+.pass-private-one {
+	border-radius: 0 !important;
+}
+
+.pass-private-two {
+	position: relative;
+	top:-4px !important;
+}
+
+.password {
+	position: relative;
+	top:-2px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	background: url("../img/password.png") no-repeat;
+	background-size: 18px;
+	background-position: 235px center;
+} 
+
+.login-in {
+	border-radius: 5px;
+	margin: 20px 0 20px;
+	width: 100%;
+	background: #ccc;
+	color: white;
+	font-size: 15px;
+	height: 42px;
+	border:none;
+	padding-bottom: 2px;
+	pointer-events: none;
+}
+
+.login-active {
+	background: #2ecc71;
+	cursor: pointer;
+	pointer-events: auto; 
+}
+
+.login-active:hover {
+	background: #27ae60;
+	transition: .3s all ease;
+}
+
+.centera {
+	text-align: center;
+}
+
+.new-account {
+	margin: 0 auto;
+	display: inline-block;
+	background: none;
+	border: none;
+	color: #777;
+	cursor: pointer;
+	text-decoration: none;
+	font-family: segoe UI;
+	font-size: 14px;
+}
+
+.new-account:hover {
+	color: #3498db;
+}
+
+/* upload */
+
+.upload-form {
+	width: 270px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.upload-image {
+	width: 100%;
+	box-sizing: border-box;
+	position: relative;
+	height: 130px;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.fake-upload {
+	position: absolute;
+	width: 100%;
+	height: 130px;
+	border:2px dashed #ddd;
+	background: white;
+	cursor: pointer;
+	color:#777;
+}
+
+.upload {
+	border-radius: 5px;
+	width: 100%;
+	background: #2ecc71;
+	color: white;
+	font-size: 15px;
+	height: 42px;
+	border:none;
+	padding-bottom: 2px;
+	cursor: pointer;
+	margin-top: 15px;
+}
+
+.upload:hover {
+	background: #27ae60;
+	transition: .3s all ease;
+}
+
+/* Home */
+
+header {
+	height:100px;
+	margin: 0 220px;
+	border-bottom: 1px solid #ccc;
+}
+
+.picnc-home {
+	font-family: segoe UI;
+	font-size: 35px;
+	color: #3498db;
+	text-decoration: none;
+	letter-spacing: 1px;
+	border-top: 1px solid #3498db;
+	border-bottom: 1px solid #3498db;
+	float: left;
+	margin-top: 20px;
+	padding-bottom: 10px;
+}
+
+.container-user {
+	float: right;
+	line-height: 100px;
+	font-family: segoe UI;
+	font-size: 14px;
+}
+
+.logout {
+	border-radius: 5px;
+	background: #2ecc71;
+	color: white;
+	height: 42px;
+	border:none;
+	cursor: pointer;
+	padding: 8px 12px;
+	margin-left: 5px;
+}
+
+.logout:hover {
+	background: #27ae60;
+	transition: .3s all ease;
+}
+
+section {
+	margin: 35px 220px;
+	position: relative;
+}
+
+.edit-image {
+	padding: 10px;
+	background: #ddd;
+	display: block;
+	margin: 0 auto;
+	max-width: 300px;
+	box-sizing: border-box;
+}
+
+.range {
+	width: 300px;
+	display: block;
+	margin: 20px auto;
+}
+
+select {
+	position: absolute;
+	right: 0;
+	margin-right: 180px;
+	padding: 8px 10px;
+	border: 1px solid #ddd;
+}
+
+select:focus {
+	border-color: #3498db;
+	outline: none;
+}
+
+.as {
+	padding: 15px 0;
+	width: 300px;
+	display: block;
+	margin: auto;
+	background: #2ecc71;
+	border:none;
+	color: white;
+	cursor: pointer;
+}
+
+.as:hover {
+	background: #27ae60;
+}
+
+/* blog */
+
+article {
+	margin: 25px 220px;
+}
+
+.posting {
+	margin: 0 100px 25px;
+	height: 218px;
+}
+
+.post-image {
+	width: 200px;
+	float: left;
+	border:1px solid #ddd;
+	box-sizing: border-box;
+}
+
+.description {
+	height: 216px;
+	max-width: calc(100% - 200px);
+	width: calc(100% - 200px);
+	box-sizing:border-box;
+	border:1px solid #ddd;
+	padding: 20px;
+	font-size: 15px;
+	font-size: 15px;
+	position: relative;
+	left: -1px;
+	font-family: segoe UI;
+}
+
+.description:focus {
+	outline: none;
+}
+
+#as-post {
+	margin-right: 0;
+	right: 100px;
+	position: relative;
+	width: 200px;
+}
+
+hr {
+	margin: 25px 100px;
+	border: 1px solid #eee;
+}
+
+.comments {
+	margin: 0 100px;
+}
+
+.other-user {
+	font-size: 18px;
+	font-family: segoe UI;
+	color: #777;
+	margin-bottom: 15px;
+}
+
+.al-post-image {
+	width: 300px;
+}
+
+.comment-comment {
+}
+
+.comment {
+	float: left;
+	width: 75%;
+	padding: 15px;
+	border:1px solid #ddd;
+	box-sizing: border-box;
+}
+
+.on-comment {
+	margin: 15px 0 17px;
+	color: #333;
+}
+
+.input-comment {
+	width: 25%;
+	padding: 15px;
+	border:1px solid #ddd;
+	box-sizing: border-box;
+	margin: 0;
+	background: #3498db;
+	color: white;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
